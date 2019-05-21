@@ -63,7 +63,7 @@
                line1.geometry.vertices[ 1 ].x = sat_active.position.x;
                line1.geometry.vertices[ 1 ].y = sat_active.position.y;
                line1.geometry.verticesNeedUpdate = true;  
-               var audio = new Audio('/sound/btn.mp3');
+               var audio = new Audio('https://steveakang.github.io/starmesh/sound/btn.mp3');
                audio.play();
                line2.geometry.vertices[ 0 ].x = line1.geometry.vertices[ 1 ].x;
                line2.geometry.vertices[ 0 ].y = line1.geometry.vertices[ 1 ].y;
