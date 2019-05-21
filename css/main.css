@@ -1,0 +1,203 @@
+body { margin: 0; }
+
+
+            table, td {
+                border: 0.6px solid black;
+                margin-right: 5px;
+            }
+            button {
+                width: 100px;
+                height: 30px;
+                position: absolute;
+                float: right;
+                z-index: 100;
+                display:block;
+                cursor: pointer;
+            }
+
+            #btn1 { 
+                top: 85px;
+                left: 1239px;
+                background-color:   rgb(7, 151, 91);
+                color: rgb(12, 12, 12);
+                
+            }
+
+            #btn2 {
+                top: 130px;
+                left: 1239px;
+                background-color:rgb(255, 0, 55);
+                color: rgb(12, 12, 12);
+
+            }
+
+            #btn3 {
+                top: 172px;
+                left: 1222px;
+                background-color:rgb(255, 251, 0);
+                color: rgb(12, 12, 12);
+                width: 116px;
+
+            }
+
+            #btn4 {
+                top: 214px;
+                left: 1205px;
+                background-color: rgb(0, 183, 255);
+                color: rgb(12, 12, 12);
+                width: 134px;
+                height: 38px;
+
+            }
+
+            #btn5 {
+                top: 269px;
+                left: 1205px;
+                background-color: #FDF5E6;
+                color: rgb(12, 12, 12);
+                width: 134px;
+                height: 38px;
+
+            }
+
+            #btn6 {
+                top: 324px;
+                left: 1200px;
+                background-color: #90EE90;
+                color:black;
+                width: 140px;
+                height: 35px;
+
+            }
+
+            #btn7 {
+                top: 375px;
+                left: 1200px;
+                background-color: #90EE90#B0E0E6;
+                color:black;
+                width: 140px;
+                height: 35px;
+
+            }
+
+            #btn8 {
+                top: 90px;
+                left: 904px;
+                background-color: rgb(7, 83, 51);
+                color:white;
+                width: 130px;
+                height: 35px;
+                border-radius: 5px;
+                border: 1px solid black;
+
+            }
+
+            #btn9 {
+                top: 140px;
+                left: 904px;
+                background-color: rgb(255, 69, 0);
+                color:black;
+                width: 130px;
+                height: 35px;
+                border-radius: 5px;
+                border: 1px solid white;
+
+            }
+
+            #btn10 {
+                top: 190px;
+                left: 904px;
+                background-color: rgb(252, 252, 252);
+                color:black;
+                width: 130px;
+                height: 35px;
+                border-radius: 5px;
+                border: 1px solid white;
+
+            }
+
+            #time {
+                position: absolute;
+                float: right;
+                font-size: 28px;
+                z-index: 100;
+                display:block;
+                color: black;
+                font-style: bold;
+                cursor: pointer;
+                top: 472px;
+                left: 1052px;
+            }
+
+
+
+            /* #altitude {
+                margin-top: 230px;
+                font-size: 30px;
+                color:red;
+                margin-left: 242px; 
+                line-height: 0px; 
+            }
+
+            #speed_of_orbit {
+                margin-top: 230px;
+                font-size: 30px;
+                color:red;
+                margin-left: 180px; 
+            }
+
+            #speed_of_rotation {
+                margin-top: 230px;
+                font-size: 30px;
+                color:red;
+                margin-left: 242px; 
+            } */
+
+            #databoard {
+                width: 880px;
+                height: 60px;
+                position: absolute;
+                float: right;
+                z-index: 100;
+                display:block;
+                border-radius: 18px;
+                top: 600px;
+                line-height:0px;
+                opacity: 10;
+                letter-spacing: 0px;
+                left: 320px;
+                background-color: black;
+            }
+             #databoard p {
+                 padding-left: 10px;
+             }
+
+             #controls {
+                width: 507px;
+                height: 560px;
+                position: absolute;
+                float: right;
+                z-index: 100;
+                display:block;
+                border-radius: 18px;
+                top:30px;
+                line-height:0px;
+                letter-spacing: 0px;
+                left: 856px;
+                background-color: transparent;
+            }
+
+            #overlay {
+                top:0px;
+                height:500px;
+                background-color:indigo;
+                opacity: 0.6;
+            }
+
+            #desc {
+                z-index: 100;
+                font-family: 'Source Sans Pro', sans-serif;
+            }
+			canvas { width: 100%; height: 100%  }
+
+            #info { position: absolute; top: 10px; width: 100%; text-align: center;	z-index: 100; display:block; color: rgb(223, 219, 219); }
