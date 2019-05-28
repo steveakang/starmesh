@@ -88,8 +88,8 @@
             setTimeout(function() { disconnect()  }, 2000);
            }
 
-
-            function flash() {
-                setInterval(function() { setcordinates(); link();  }, 5000);
-            }
-            flash();
+           function flash() {
+            setInterval(function() { setcordinates(); link();  }, 5000);
+           }
+                               
+           flash();
