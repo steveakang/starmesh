@@ -17,7 +17,7 @@
         
         //-satelite---1/
         var geometry = new THREE.SphereBufferGeometry( 3.5, 8, 26, 0, 6.3, 0, 3.3 );
-        var material = new THREE.MeshBasicMaterial( { color: 0x8B008B, side: THREE.DoubleSide } );
+        var material = new THREE.MeshBasicMaterial( { color: 0x000000, side: THREE.DoubleSide } );
         var sat1 = new THREE.Mesh( geometry, material );
         scene2.add( sat1 );
         //-positions/
