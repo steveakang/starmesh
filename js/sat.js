@@ -579,6 +579,7 @@
         dotGeometry.vertices.push(new THREE.Vector3( 0, 0, 0));
         var dotMaterial = new THREE.PointsMaterial( { size: 10, sizeAttenuation: false, color: 0xFFA500} );
         var dot2 = new THREE.Points( dotGeometry, dotMaterial );
+        dot2.name = 'Jordan';
         scene2.add( dot2 );
         dot2.position.x = 37;
         dot2.position.y = 20;
@@ -589,6 +590,7 @@
         dotGeometry.vertices.push(new THREE.Vector3( 0, 0, 0));
         var dotMaterial = new THREE.PointsMaterial( { size: 10, sizeAttenuation: false, color: 0xff0000} );
         var dot3 = new THREE.Points( dotGeometry, dotMaterial );
+        dot3.name = 'Saudi Arabia';
         scene2.add( dot3 );
         dot3.position.x = 109;
         dot3.position.y = -38;
@@ -598,6 +600,7 @@
         dotGeometry.vertices.push(new THREE.Vector3( 0, 0, 0));
         var dotMaterial = new THREE.PointsMaterial( { size: 10, sizeAttenuation: false, color: 0x800000} );
         var dot4 = new THREE.Points( dotGeometry, dotMaterial );
+        dot4.name = 'Libya';
         scene2.add( dot4 );
         dot4.position.x = -110;
         dot4.position.y = -15;
@@ -609,6 +612,7 @@
         dotGeometry.vertices.push(new THREE.Vector3( 0, 0, 0));
         var dotMaterial = new THREE.PointsMaterial( { size: 11, sizeAttenuation: false, color: 0x000000} );
         var dot6 = new THREE.Points( dotGeometry, dotMaterial );
+        dot6.name = 'Iran';
         scene2.add( dot6 );
         dot6.position.x = 145;
         dot6.position.y = 32;
@@ -618,6 +622,7 @@
         dotGeometry.vertices.push(new THREE.Vector3( 0, 0, 0));
         var dotMaterial = new THREE.PointsMaterial( { size: 11, sizeAttenuation: false, color: 0x01ff00} );
         var dot7 = new THREE.Points( dotGeometry, dotMaterial );
+        dot7.name = 'Afghanistan';
         scene2.add( dot7 );
         dot7.position.x = 185;
         dot7.position.y = 64;
@@ -627,9 +632,118 @@
         dotGeometry.vertices.push(new THREE.Vector3( 0, 0, 0));
         var dotMaterial = new THREE.PointsMaterial( { size: 11, sizeAttenuation: false, color: 0xff471a} );
         var dot8 = new THREE.Points( dotGeometry, dotMaterial );
+        dot8.name= 'Tunisia';
         scene2.add( dot8 );
         dot8.position.x = -125;
         dot8.position.y = 44;
+
+         //---Center of Focus------------Line1//
+         var material = new THREE.LineBasicMaterial( { color: 0xff0000 } );
+         var geometry = new THREE.Geometry();
+         //Start Point [0]
+         geometry.vertices.push(new THREE.Vector3( 10, 10, 10) );
+         geometry.verticesNeedUpdate = true;
+         geometry.dynamic = true;
+         //End Point [1]
+         geometry.vertices.push(new THREE.Vector3( 10, 10, 10) );
+         geometry.verticesNeedUpdate = true;
+         geometry.dynamic = true;
+         var line1 = new THREE.Line( geometry, material );
+         scene2.add( line1 );
+
+
+         //---Center of Focus------------Line1//
+         var material = new THREE.LineBasicMaterial( { color: 0xff0000 } );
+         var geometry = new THREE.Geometry();
+         //Start Point [0]
+         geometry.vertices.push(new THREE.Vector3( 5, 5, 5) );
+         geometry.verticesNeedUpdate = true;
+         geometry.dynamic = true;
+         //End Point [1]
+         geometry.vertices.push(new THREE.Vector3( 5, 5, 5) );
+         geometry.verticesNeedUpdate = true;
+         geometry.dynamic = true;
+         var line2 = new THREE.Line( geometry, material );
+         scene2.add( line2 );
+
+         //---Center of Focus------------Line3//
+         var material = new THREE.LineBasicMaterial( { color: 0xff0000 } );
+         var geometry = new THREE.Geometry();
+         //Start Point [0]
+         geometry.vertices.push(new THREE.Vector3( 5, 5, 5) );
+         geometry.verticesNeedUpdate = true;
+         geometry.dynamic = true;
+         //End Point [1]
+         geometry.vertices.push(new THREE.Vector3( 5, 5, 5) );
+         geometry.verticesNeedUpdate = true;
+         geometry.dynamic = true;
+         var line3 = new THREE.Line( geometry, material );
+         scene2.add( line3 );
+
+
+          //---Center of Focus------------Line4//
+          var material = new THREE.LineBasicMaterial( { color: 0xff0000 } );
+          var geometry = new THREE.Geometry();
+          //Start Point [0]
+          geometry.vertices.push(new THREE.Vector3( 5, 5, 5) );
+          geometry.verticesNeedUpdate = true;
+          geometry.dynamic = true;
+          //End Point [1]
+          geometry.vertices.push(new THREE.Vector3( 5, 5, 5) );
+          geometry.verticesNeedUpdate = true;
+          geometry.dynamic = true;
+          var line4 = new THREE.Line( geometry, material );
+          scene2.add( line4 );
+ 
+
+         line1.geometry.vertices[ 0 ].x = -140;
+         line1.geometry.vertices[ 0 ].y = 80;
+         line1.geometry.vertices[ 1 ].x = 128;
+         line1.geometry.vertices[ 1 ].y = 80;
+         line1.geometry.verticesNeedUpdate = true;
+         line2.geometry.vertices[ 0 ].x = 130;
+         line2.geometry.vertices[ 0 ].y = 90;
+         line2.geometry.vertices[ 1 ].x = 130;
+         line2.geometry.vertices[ 1 ].y = -100;
+         line2.geometry.verticesNeedUpdate = true;
+         line3.geometry.vertices[ 0 ].x = -145;
+         line3.geometry.vertices[ 0 ].y = -90;
+         line3.geometry.vertices[ 1 ].x = 135;
+         line3.geometry.vertices[ 1 ].y = -90;
+         line3.geometry.verticesNeedUpdate = true;
+         line4.geometry.vertices[ 0 ].x = -145;
+         line4.geometry.vertices[ 0 ].y = 90;
+         line4.geometry.vertices[ 1 ].x = -145;
+         line4.geometry.vertices[ 1 ].y = -90;
+         line4.geometry.verticesNeedUpdate = true;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         
 

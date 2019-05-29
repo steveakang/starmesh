@@ -162,7 +162,7 @@ function newSatLoc() {
 }  
 
 function makeNewLoc() {
-    setInterval(function() { newSatLoc(); }, 3600000);
+    setInterval(function() { newSatLoc(); }, 60000);
     //Refresh the Satellite Location every 10 minutes
     window.alert("Satellite location refreshed");
 }
