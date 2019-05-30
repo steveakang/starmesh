@@ -19,6 +19,7 @@
         var geometry = new THREE.SphereBufferGeometry( 3.5, 8, 26, 0, 6.3, 0, 3.3 );
         var material = new THREE.MeshBasicMaterial( { color: 0x000000, side: THREE.DoubleSide } );
         var sat1 = new THREE.Mesh( geometry, material );
+        sat1.name = "sat1";
         scene2.add( sat1 );
         //-positions/
         /* Random coordinate for x axis */
@@ -41,6 +42,7 @@
 
         // // //-satellite---2/
         var sat2 = new THREE.Mesh( geometry, material );
+        sat2.name = 'sat2';
         scene2.add( sat2 );
         //-positions/
          /* Random coordinate for x axis */
@@ -58,6 +60,7 @@
 
          //-satellite---3/
          var sat3 = new THREE.Mesh( geometry, material );
+         sat3.name = 'sat3';
          scene2.add( sat3 );
          //-positions/
          /* Random coordinate for x axis */
@@ -75,6 +78,7 @@
 
          //-satellite---4/
          var sat4 = new THREE.Mesh( geometry, material );
+         sat4.name = 'sat4';
          scene2.add( sat4 );
          //-positions/
          /* Random coordinate for x axis */
@@ -92,9 +96,8 @@
 
 
          //-satellite---5/
-        //  var geometry = new THREE.SphereBufferGeometry( 4, 3, 26, 0, 1.4, 2, 2.9 );
-        //  var material = new THREE.MeshBasicMaterial( { color: 0x0000FF, side: THREE.DoubleSide } );
          var sat5 = new THREE.Mesh( geometry, material );
+         sat5.name = 'sat5';
          scene2.add( sat5 );
          //-positions/
          /* Random coordinate for x axis */
@@ -112,6 +115,7 @@
 
          //-satellite---6/
          var sat6 = new THREE.Mesh( geometry, material );
+         sat6.name = 'sat6';
          scene2.add( sat6 );
          //-positions/
          /* Random coordinate for x axis */
@@ -131,6 +135,7 @@
 
          //-satellite---7/
          var sat7 = new THREE.Mesh( geometry, material );
+         sat7.name = 'sat7';
          scene2.add( sat7 );
          //-positions/
          /* Random coordinate for x axis */
@@ -150,6 +155,7 @@
 
          //-satellite---8/
          var sat8 = new THREE.Mesh( geometry, material );
+         sat8.name = 'sat8';
          scene2.add( sat8 );
          //-positions/
          /* Random coordinate for x axis */
@@ -168,6 +174,7 @@
 
         //-satellite---9/
          var sat9 = new THREE.Mesh( geometry, material );
+         sat9.name = 'sat9';
          scene2.add( sat9 );
         //-positions/
          /* Random coordinate for x axis */
@@ -186,6 +193,7 @@
 
         //-satellite---10/
         var sat10 = new THREE.Mesh( geometry, material );
+        sat10.name = 'sat10';
         scene2.add( sat10 );
          //-positions/
         /* Random coordinate for x axis */
@@ -207,6 +215,7 @@
 
         //-satellite---11/
         var sat11 = new THREE.Mesh( geometry, material );
+        sat11.name = 'sat11';
         scene2.add( sat11 );
         //-positions/
         /* Random coordinate for x axis */
@@ -225,6 +234,7 @@
 
          //-satellite---12/
         var sat12 = new THREE.Mesh( geometry, material );
+        sat12.name = 'sat12';
         scene2.add( sat12 );
         //-positions/
         /* Random coordinate for x axis */
@@ -243,6 +253,7 @@
 
         //-satellite---13/
         var sat13 = new THREE.Mesh( geometry, material );
+        sat13.name = 'sat13';
         scene2.add( sat13 );
         //-positions/
         /* Random coordinate for x axis */
@@ -262,6 +273,7 @@
 
         //-satellite---14/
         var sat14 = new THREE.Mesh( geometry, material );
+        sat14.name = 'sat14';
         scene2.add( sat14 );
         //-positions/
         /* Random coordinate for x axis */
@@ -281,6 +293,7 @@
 
         //-satellite---15/
         var sat15 = new THREE.Mesh( geometry, material );
+        sat15.name = 'sat15';
         scene2.add( sat15 );
         //-positions/
         /* Random coordinate for x axis */
@@ -299,6 +312,7 @@
 
         //-satellite---16/
         var sat16 = new THREE.Mesh( geometry, material );
+        sat16.name = 'sat16';
         scene2.add( sat16 );
         //-positions/
         /* Random coordinate for x axis */
@@ -317,6 +331,7 @@
 
         //-satellite---17/
         var sat17 = new THREE.Mesh( geometry, material );
+        sat17.name = 'sat17';
         scene2.add( sat17 );
         //-positions/
         /* Random coordinate for x axis */
@@ -335,6 +350,7 @@
 
         //-satellite---18/
         var sat18 = new THREE.Mesh( geometry, material );
+        sat18.name = 'sat18';
         scene2.add( sat18 );
         //-positions/
         /* Random coordinate for x axis */
@@ -353,6 +369,7 @@
 
         //-satellite---19/
         var sat19 = new THREE.Mesh( geometry, material );
+        sat19.name = 'sat19';
         scene2.add( sat19 );
         //-positions/
         /* Random coordinate for x axis */
@@ -372,6 +389,7 @@
 
         //-satellite---20/
         var sat20 = new THREE.Mesh( geometry, material );
+        sat20.name = 'sat20';
         scene2.add( sat20 );
         //-positions/
         /* Random coordinate for x axis */
@@ -390,6 +408,7 @@
 
         //-satellite---21/
         var sat21 = new THREE.Mesh( geometry, material );
+        sat21.name = 'sat21';
         scene2.add( sat21 );
         //-positions/
         /* Random coordinate for x axis */
@@ -408,6 +427,7 @@
 
         //-satellite---22/
         var sat22 = new THREE.Mesh( geometry, material );
+        sat22.name = 'sat22';
         scene2.add( sat22 );
         //-positions/
         /* Random coordinate for x axis */
@@ -426,6 +446,7 @@
 
         //-satellite---23/
         var sat23 = new THREE.Mesh( geometry, material );
+        sat23.name = 'sat23';
         scene2.add( sat23 );
         //-positions/
         /* Random coordinate for x axis */
@@ -444,6 +465,7 @@
 
         //-satellite---24/
         var sat24 = new THREE.Mesh( geometry, material );
+        sat24.name = 'sat24';
         scene2.add( sat24 );
         //-positions/
         /* Random coordinate for x axis */
@@ -462,6 +484,7 @@
 
         //-satellite---25/
         var sat25 = new THREE.Mesh( geometry, material );
+        sat25.name = 'sat25';
         scene2.add( sat25 );
         //-positions/
         /* Random coordinate for x axis */
@@ -477,8 +500,9 @@
         console.log(sat25y);
         //end
 
-        //-satellite---20/
+        //-satellite---26/
         var sat26 = new THREE.Mesh( geometry, material );
+        sat26.name = 'sat26';
         scene2.add( sat26 );
         //-positions/
         /* Random coordinate for x axis */
@@ -494,8 +518,9 @@
         console.log(sat26y);
         //end
 
-        //-satellite---20/
+        //-satellite---27/
         var sat27 = new THREE.Mesh( geometry, material );
+        sat27.name = 'sat27';
         scene2.add( sat27 );
         //-positions/
         /* Random coordinate for x axis */
@@ -514,6 +539,7 @@
 
         //-satellite---28/
         var sat28 = new THREE.Mesh( geometry, material );
+        sat28.name = 'sat28';
         scene2.add( sat28 );
         //-positions/
         /* Random coordinate for x axis */
@@ -532,6 +558,7 @@
 
         //-satellite---29/
         var sat29 = new THREE.Mesh( geometry, material );
+        sat29.name = 'sat29';
         scene2.add( sat29 );
         //-positions/
         /* Random coordinate for x axis */
@@ -549,6 +576,7 @@
 
         //-satellite---30/
         var sat30 = new THREE.Mesh( geometry, material );
+        sat30.name = 'sat30';
         scene2.add( sat30 );
         //-positions/
         /* Random coordinate for x axis */
