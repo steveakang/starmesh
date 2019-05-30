@@ -596,19 +596,23 @@
 
 
         //First Dot
-        // var geometry = new THREE.PlaneGeometry( 15, 2, 32 );
-        // var material = new THREE.MeshBasicMaterial( {color: 0xFF0000, side: THREE.OneSide} );
-        // var dot1 = new THREE.Mesh( geometry, material );
-        // scene2.add( dot1 );
+        var dotGeometry = new THREE.Geometry();
+        dotGeometry.vertices.push(new THREE.Vector3( 0, 0, 0));
+        var dotMaterial = new THREE.PointsMaterial( { size: 10, sizeAttenuation: false, color: 0x00a2e8} );
+        var dot1 = new THREE.Points( dotGeometry, dotMaterial );
+        dot1.name = 'Zaria';
+        scene2.add( dot1 );
+        dot1.position.x = 0;
+        dot1.position.y = 100;
 
 
 
         //second Dot//
         var dotGeometry = new THREE.Geometry();
         dotGeometry.vertices.push(new THREE.Vector3( 0, 0, 0));
-        var dotMaterial = new THREE.PointsMaterial( { size: 10, sizeAttenuation: false, color: 0xFFA500} );
+        var dotMaterial = new THREE.PointsMaterial( { size: 10, sizeAttenuation: false, color: 0xFFFF00} );
         var dot2 = new THREE.Points( dotGeometry, dotMaterial );
-        dot2.name = 'Jordan';
+        dot2.name = 'West Cameroon';
         scene2.add( dot2 );
         dot2.position.x = 37;
         dot2.position.y = 20;
@@ -619,7 +623,7 @@
         dotGeometry.vertices.push(new THREE.Vector3( 0, 0, 0));
         var dotMaterial = new THREE.PointsMaterial( { size: 10, sizeAttenuation: false, color: 0xff0000} );
         var dot3 = new THREE.Points( dotGeometry, dotMaterial );
-        dot3.name = 'Saudi Arabia';
+        dot3.name = 'South Cameroon';
         scene2.add( dot3 );
         dot3.position.x = 109;
         dot3.position.y = -38;
@@ -629,7 +633,7 @@
         dotGeometry.vertices.push(new THREE.Vector3( 0, 0, 0));
         var dotMaterial = new THREE.PointsMaterial( { size: 10, sizeAttenuation: false, color: 0x800000} );
         var dot4 = new THREE.Points( dotGeometry, dotMaterial );
-        dot4.name = 'Libya';
+        dot4.name = 'Gulf of Guinea';
         scene2.add( dot4 );
         dot4.position.x = -110;
         dot4.position.y = -15;
@@ -641,7 +645,7 @@
         dotGeometry.vertices.push(new THREE.Vector3( 0, 0, 0));
         var dotMaterial = new THREE.PointsMaterial( { size: 11, sizeAttenuation: false, color: 0x000000} );
         var dot6 = new THREE.Points( dotGeometry, dotMaterial );
-        dot6.name = 'Iran';
+        dot6.name = 'North-West Bangui';
         scene2.add( dot6 );
         dot6.position.x = 145;
         dot6.position.y = 32;
@@ -651,7 +655,7 @@
         dotGeometry.vertices.push(new THREE.Vector3( 0, 0, 0));
         var dotMaterial = new THREE.PointsMaterial( { size: 11, sizeAttenuation: false, color: 0x01ff00} );
         var dot7 = new THREE.Points( dotGeometry, dotMaterial );
-        dot7.name = 'Afghanistan';
+        dot7.name = 'Central African Republic';
         scene2.add( dot7 );
         dot7.position.x = 185;
         dot7.position.y = 64;
@@ -661,7 +665,7 @@
         dotGeometry.vertices.push(new THREE.Vector3( 0, 0, 0));
         var dotMaterial = new THREE.PointsMaterial( { size: 11, sizeAttenuation: false, color: 0xff471a} );
         var dot8 = new THREE.Points( dotGeometry, dotMaterial );
-        dot8.name= 'Tunisia';
+        dot8.name= 'Ghana';
         scene2.add( dot8 );
         dot8.position.x = -125;
         dot8.position.y = 44;
