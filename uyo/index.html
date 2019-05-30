@@ -56,15 +56,15 @@
         <div id="ctr">
         <button id="btn1">Zoom +</button>
         <button id="btn2">Zoom -</button>
-        <a href="https://steveakang.github.io/starmesh/"><button id="btn3">Change Scene</button></a>
+        <a href="uyo/index.html"><button id="btn3">Change Scene</button></a>
         <button id="btn4">Speed of Rotation +</button>
         <button id="btn5">Speed of Rotation -</button>
         <button id="btn6">Speed of Orbit +</button>
         <button id="btn7">Speed of Orbit -</button>
-        <button id="btn8"><i class="fa-li fa fa-spinner fa-spin"></i>Refresh</button>
-        <button id="btn9"><i class="fa-li fa fa-spinner fa-spin"></i>Run Again</button>
+        <button id="btn8"><i class="fa-li fa fa-spinner fa-spin"></i>Run Again</button>
+        <a href="#openModal" class="btn btn-success" style="top: 145px !important;left: 904px !important; position: absolute; z-index: 1000;width: 130px;height: 35px;" id="btn9"><i class="fa-li fa fa-spinner fa-spin"></i>End Simulation</a>
         <button id="btn10" info="Hover over the Data Board to show controls again"><i class="fa-li fa fa-spinner fa-spin"></i>Close Controls</button>
-        <div id="time"><time><b>>00:00:<span id="factor">00</span></b></time></div>
+        <div id="time"><time><b>00:00:<span id="factor">00</span></b></time></div>
         </div>
 
 
@@ -104,9 +104,6 @@
         chg();
         </script>
 
-
-        
-        
         <script>  
         document.getElementById("btn1").addEventListener("click", function() {
             var zm = camera.getFocalLength();
@@ -467,6 +464,165 @@
           document.getElementById("ov").innerHTML = o_v;
         });
         </script>
+		
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+  
+<div id="openModal" class="modalDialog">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+    <style>
+
+.modalDialog {
+	position: fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 99999;
+	opacity:0;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+	pointer-events: none;
+}
+.modalDialog:target {
+	opacity:1;
+	pointer-events: auto;
+}
+.modalDialog > div {
+	width: 60%;
+	position: relative;
+	margin: 10% auto;
+	padding: 5px 20px 13px 20px;
+	border-radius: 10px;
+	background: #fff;
+	background: -moz-linear-gradient(#fff, #efebeb);
+	background: -webkit-linear-gradient(#fff, #efebeb);
+	background: -o-linear-gradient(#fff, #efebeb);
+}
+.close {
+	background: #606061;
+	color: #FFFFFF;
+	line-height: 25px;
+	position: absolute;
+	right: -12px;
+	text-align: center;
+	top: -10px;
+	width: 24px;
+	text-decoration: none;
+	font-weight: bold;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	-moz-box-shadow: 1px 1px 3px #000;
+	-webkit-box-shadow: 1px 1px 3px #000;
+	box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover { background: #00d9ff; }
+</style>
+	<div>
+		
+        <h2>Log report <span style='float:right;'><a id="closelog" href="#close" class="btn btn-danger" >X Close</a><a id="gpdf" class="btn btn-success btn-block" style="width: 130px;height: 35px;">Print PDF</a> </span></h2>
+        <script>
+          document.getElementById("closelog").addEventListener("click", function() {
+            window.alert('Simulation Ended, Click "Run Again" to Reload Another simulation');
+        });
+        </script>
+        <br/>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+</style>
+<div id="ignoreContent2">
+
+                    
+</div>
+<div id="PDFcontent">
+<h5><center><b style='float:left;'>Log report for previous run</b><b style='float:right;'>Run Duration:<span id='run_duration'>00:00:00</span></b></center></h5>
+ <br/>
+<table id="printable">
+  <tr>
+    <th>Packet No.</th>
+    <th>Destination</th>
+    <th>Delay Experienced (YES/NO)</th>
+    <th>Duration of Delay</th>
+  </tr>
+</table>
+
+</div>
+                  
+<script>
+
+var pdfdoc = new jsPDF();
+
+var specialElementHandlers = {
+
+'#ignoreContent': function (element, renderer) {
+
+return true;
+
+}
+
+};
+
+ 
+
+$(document).ready(function(){
+
+$("#gpdf").click(function(){
+
+pdfdoc.fromHTML($('#PDFcontent').html(), 10, 10, {
+
+'width': 110,
+
+'elementHandlers': specialElementHandlers
+
+});
+
+pdfdoc.save('log.pdf');
+
+});});
+</script>
+                
+
+	</div>
+</div>	
     
 	</body>
 </html>
