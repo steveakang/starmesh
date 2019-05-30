@@ -36,6 +36,60 @@
             earth.position.x = 0;
             earth.position.y = 0;
             //-end-----/
+		
+	var geometry = new THREE.SphereBufferGeometry( 3.5, 8, 26, 0, 6.3, 0, 3.3 );
+        var material = new THREE.MeshBasicMaterial( { color: 0x000000, side: THREE.DoubleSide } );
+        var sateliteArray = [];
+        var sateliteArrayRight = [];
+        var lastAdded = 0;
+        function addSatelite(){
+            //alert('Satelite added');
+            if(lastAdded===0){  
+                sateliteArray.push(new THREE.Mesh( geometry, material ));
+                
+                scene2.add( sateliteArray[sateliteArray.length-1] );
+                
+                var leftSatelitProp = Math.floor(Math.random()*215) + 0; // this will get a number between 1 and 99;
+                leftSatelitProp *= Math.floor(Math.random()*2) == 1 ? 1 : -1; // this will add minus sign in 50% of cases
+                var leftSateliteAltitude = 0;
+                sateliteArray[sateliteArray.length-1].position.x = leftSatelitProp;
+                sateliteArray[sateliteArray.length-1].position.z = leftSateliteAltitude;
+
+            
+                console.log(leftSatelitProp);
+                console.log(leftSateliteAltitude);
+                
+                var leftSatelitPropy = Math.floor(Math.random()*100) + 0; // this will get a number between 1 and 99;
+                leftSatelitPropy *=  Math.floor(Math.random()*2) == 1 ? 1 : -1; // this will add minus sign in 50% of cases
+                sateliteArray[sateliteArray.length-1].position.y = leftSatelitPropy;
+                console.log(leftSatelitPropy);
+                
+                lastAdded=1;
+            }else{
+                
+                
+                sateliteArrayRight.push(new THREE.Mesh( geometry, material ));
+                
+                scene2.add( sateliteArrayRight[sateliteArrayRight.length-1] );
+                
+                
+                var rightSatelitProp = Math.floor(Math.random()*215) + 0; // this will get a number between 1 and 99;
+                rightSatelitProp *= Math.floor(Math.random()*2) == 1 ? 1 : -1; // this will add minus sign in 50% of cases
+                var rightSateliteAltitude = 0;
+                sateliteArrayRight[sateliteArrayRight.length-1].position.x = rightSatelitProp;
+                sateliteArrayRight[sateliteArrayRight.length-1].position.z = rightSateliteAltitude;
+                
+                console.log(rightSatelitProp);
+                console.log(rightSateliteAltitude);
+                
+                var leftSatelitPropy = Math.floor(Math.random()*100) + 0; // this will get a number between 1 and 99;
+                leftSatelitPropy *=  Math.floor(Math.random()*2) == 1 ? 1 : -1; // this will add minus sign in 50% of cases
+                sateliteArrayRight[sateliteArrayRight.length-1].position.y = leftSatelitPropy;
+                console.log(leftSatelitPropy);
+                
+                lastAdded=0;
+            }
+        }
         </script>
         
         
@@ -63,6 +117,7 @@
         <button id="btn7">Speed of Orbit -</button>
         <button id="btn8"><i class="fa-li fa fa-spinner fa-spin"></i>Run Again</button>
         <a href="#openModal" class="btn btn-success" style="top: 145px !important;left: 904px !important; position: absolute; z-index: 1000;width: 130px;height: 35px;" id="btn9"><i class="fa-li fa fa-spinner fa-spin"></i>End Simulation</a>
+	<a  onclick="addSatelite()" class="btn btn-success" style="top: 235px !important;left: 904px !important; position: absolute; z-index: 1000;width: 150px;height: 35px;" ><i class="fa-li fa fa-spinner fa-spin"></i>Launch new satellite</a>	
         <button id="btn10" info="Hover over the Data Board to show controls again"><i class="fa-li fa fa-spinner fa-spin"></i>Close Controls</button>
         <div id="time"><time><b>>00:00:<span id="factor">00</span></b></time></div>
         </div>
