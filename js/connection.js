@@ -71,6 +71,7 @@
                loc_active = loclist[ranloc];
             }
             var delay = 0;
+            var period_of_delay = 0;
 
            function connect() {
                 line1.geometry.vertices[ 1 ].x = sat_active.position.x;
@@ -100,8 +101,10 @@
             if (sat_active.position.x >= -140 && sat_active.position.x <= 128 && sat_active.position.y >= -90 && sat_active.position.y <= 80) {
                 delay = 0;
                 connect();
+                period_of_delay = 0;
             } else {
                 delay = 1;
+                period_of_delay++;
             };
             // Find a <table> element with id="printable":
             var table = document.getElementById("printable");
@@ -120,7 +123,7 @@
             } else {
                 cell3.innerHTML = 'NO';
             }
-            cell4.innerHTML = "duration_of_delay";    
+            cell4.innerHTML = '00:0' + period_of_delay;    
             setTimeout(function() { disconnect()  }, 50);
            }
            var s;
