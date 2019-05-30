@@ -115,15 +115,17 @@
             var cell2 = row.insertCell(1);
             var cell3 = row.insertCell(2);
             var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4);
             // Add values to the new cells:
             cell1.innerHTML = loclist.indexOf(loc_active);
             cell2.innerHTML = loc_active.name;
+            cell3.innerHTML = sat_active.name;
             if (Boolean(delay) == true) {
-                cell3.innerHTML = 'YES';
+                cell4.innerHTML = 'YES';
             } else {
-                cell3.innerHTML = 'NO';
+                cell4.innerHTML = 'NO';
             }
-            cell4.innerHTML = '00:0' + period_of_delay;    
+            cell5.innerHTML = '00:0' + period_of_delay;    
             setTimeout(function() { disconnect()  }, 50);
            }
            var s;
