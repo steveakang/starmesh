@@ -28,7 +28,7 @@
         <script>
             //-Planet Earth--->/
             var geometry = new THREE.PlaneGeometry( 480, 240, 32 );
-            var texture = new THREE.TextureLoader().load( '/textures/cairo.jpg' );
+            var texture = new THREE.TextureLoader().load( 'https://steveakang.github.io/starmesh/textures/cairo.jpg' );
             // immediately use the texture for material creation
             var material = new THREE.MeshBasicMaterial( { map: texture } );
             var earth = new THREE.Mesh( geometry, material );
