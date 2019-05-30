@@ -28,7 +28,7 @@
         <script>
             //-Planet Earth--->/
             var geometry = new THREE.PlaneGeometry( 480, 240, 32 );
-            var texture = new THREE.TextureLoader().load( 'https://steveakang.github.io/starmesh/textures/cairo.jpg' );
+            var texture = new THREE.TextureLoader().load( '/textures/cairo.jpg' );
             // immediately use the texture for material creation
             var material = new THREE.MeshBasicMaterial( { map: texture } );
             var earth = new THREE.Mesh( geometry, material );
@@ -62,10 +62,10 @@
         <button id="btn5">Speed of Rotation -</button>
         <button id="btn6">Speed of Orbit +</button>
         <button id="btn7">Speed of Orbit -</button>
-        <button id="btn8"><i class="fa-li fa fa-spinner fa-spin"></i>Refresh</button>
+        <button id="btn8"><i class="fa-li fa fa-spinner fa-spin"></i>Run Again</button>
         <a href="#openModal" class="btn btn-success" style="top: 145px !important;left: 904px !important; position: absolute; z-index: 1000;width: 130px;height: 35px;" id="btn9"><i class="fa-li fa fa-spinner fa-spin"></i>End Simulation</a>
         <button id="btn10" info="Hover over the Data Board to show controls again"><i class="fa-li fa fa-spinner fa-spin"></i>Close Controls</button>
-        <div id="time"><time><b>>00:00:<span id="factor">00</span></b></time></div>
+        <div id="time"><time><b>00:00:<span id="factor">00</span></b></time></div>
         </div>
 
 
@@ -140,6 +140,7 @@
 
         document.getElementById("btn9").addEventListener("click", function() {
             stopflash();
+            document.getElementById("run_duration").innerHTML = time.textContent;
         });
 
         document.getElementById("btn10").addEventListener("click", function() {
@@ -551,8 +552,12 @@ tr:nth-child(even) {
 </style>
 	<div>
 		
-        <h2>Log report <span style='float:right;'><a href="#close" class="btn btn-danger">X Close</a> <a id="gpdf" class="btn btn-success btn-block" style="width: 130px;height: 35px;">Print PDF</a> </span></h2>
-        
+        <h2>Log report <span style='float:right;'><a id="closelog" href="#close" class="btn btn-danger" >X Close</a><a id="gpdf" class="btn btn-success btn-block" style="width: 130px;height: 35px;">Print PDF</a> </span></h2>
+        <script>
+          document.getElementById("closelog").addEventListener("click", function() {
+            window.alert('Simulation Ended, Click "Run Again" to Reload Another simulation');
+        });
+        </script>
         <br/>
 <style>
 table {
@@ -577,7 +582,7 @@ tr:nth-child(even) {
                     
 </div>
 <div id="PDFcontent">
-<h5><center><b style='float:left;'>Log report for previous run</b><b style='float:right;'>Run Duration: 00:22:30</b></center></h5>
+<h5><center><b style='float:left;'>Log report for previous run</b><b style='float:right;'>Run Duration:<span id='run_duration'>00:00:00</span></b></center></h5>
  <br/>
 <table id="printable">
   <tr>
@@ -586,25 +591,6 @@ tr:nth-child(even) {
     <th>Delay Experienced (YES/NO)</th>
     <th>Duration of Delay</th>
   </tr>
-  <tr>
-    <td>1</td>
-    <td>Libya</td>
-    <td>YES</td>
-    <td>00:05</td>
-  </tr>
-  <tr>
-    <td>7</td>
-    <td>Algeria</td>
-    <td>NO</td>
-    <td>00:00</td>
-  </tr>
-  <tr>
-    <td>9</td>
-    <td>Niger</td>
-    <td>NO</td>
-    <td>00:00</td>
-  </tr>
-
 </table>
 
 </div>
