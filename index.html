@@ -24,7 +24,167 @@
         <script src= "js/newSatLoc.js"></script>
 
 
+<div id="openModal2" class="modalDialog" >
+    
+    
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+    <style>
+
+.modalDialog {
+	position: fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 99999;
+	opacity:0;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+	pointer-events: none;
+}
+.modalDialog:target {
+	opacity:1;
+	pointer-events: auto;
+}
+.modalDialog > div {
+	width: 60%;
+	position: relative;
+	margin: 10% auto;
+	padding: 5px 20px 13px 20px;
+	border-radius: 10px;
+	background: #fff;
+	background: -moz-linear-gradient(#fff, #efebeb);
+	background: -webkit-linear-gradient(#fff, #efebeb);
+	background: -o-linear-gradient(#fff, #efebeb);
+}
+.close {
+	background: #606061;
+	color: #FFFFFF;
+	line-height: 25px;
+	position: absolute;
+	right: -12px;
+	text-align: center;
+	top: -10px;
+	width: 24px;
+	text-decoration: none;
+	font-weight: bold;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	-moz-box-shadow: 1px 1px 3px #000;
+	-webkit-box-shadow: 1px 1px 3px #000;
+	box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover { background: #00d9ff; }
+</style>
+	<div style="height:650px; margin-top: 10px !important; overflow-y: scroll">
+		
+        <h2>Simulation parameters <span style='float:right;'><a id="closelog2" href="#close" class="btn btn-danger" >X Close</a> </span></h2>
         <script>
+          document.getElementById("closelog2").addEventListener("click", function() {
+           window.alert('Satellite No:'+satelliteNoParam+" Altitude: "+altitudeParam);
+        //window.alert('Closed');
+        });
+        
+        
+        
+        
+        </script>
+        <br/>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+</style>
+<h4><center><b style='float:left;'>Please enter simulation parameters in the form below to begin simulation</b></center></h4>
+ <br/><br/>
+ <div class="form-group">
+  <label for="1">Enter No. of satellites between 10 to 250</label>
+  <input type="text"  class="form-control" id="1">
+</div>
+<div class="form-group">
+  <label for="2">Specify altitudes between 50 to 600 miles</label>
+  <input type="text" class="form-control" id="2">
+</div> 
+<div class="form-group">
+  <label for="3">Enter No. of antenna on satellites between 12 to 25</label>
+  <input type="text" class="form-control" id="3">
+</div>
+<div class="form-group">
+  <label for="4">Enter size of antenna on satellites (cm)</label>
+  <input type="text" class="form-control" id="4">
+</div> 
+ <div class="form-group">
+  <label for="5">Enter size of antennas on ground stations</label>
+  <input type="text" class="form-control" id="5">
+</div>
+<div class="form-group">
+  <label for="6">Specify Transmitting power(PT) of antennas on Ground stations</label>
+  <input type="text" class="form-control" id="6">
+</div> 
+ <div class="form-group">
+  <label for="7">Specify Transmitting power(PT) of antennas on satellites</label>
+  <input type="text" class="form-control" id="7">
+</div>
+<div class="form-group">
+  <label for="8">Specify Gain(dB) of antennas on ground stations</label>
+  <input type="text" class="form-control" id="8">
+</div> 
+ <div class="form-group">
+  <label for="9">Specify Gain(dB) of antennas on ground satellites</label>
+  <input type="text" class="form-control" id="9">
+</div>
+<div class="form-group">
+  <label for="10">Specify transmitting frequency(Hz) on ground stations</label>
+  <input type="text" class="form-control" id="10">
+</div> 
+ <div class="form-group">
+  <label for="11">Specify transmitting frequency(Hz) on ground satellites</label>
+  <input type="text" class="form-control" id="11">
+</div>
+                  
+ <a id="ss" onclick="loadParams()" style="margin-bottom: 20px !important; font-size: 18px" href="#" class="btn btn-success" >Begin simulation </a>
+	</div>
+</div>
+        <script>
+            
+        
+        </script>
+        <script>
+        
             //-Planet Earth--->/
             var geometry = new THREE.PlaneGeometry( 480, 240, 32 );
             var texture = new THREE.TextureLoader().load( 'https://steveakang.github.io/starmesh/textures/cairo.jpg' );
@@ -40,18 +200,115 @@
 	var geometry = new THREE.SphereBufferGeometry( 3.5, 8, 26, 0, 6.3, 0, 3.3 );
         var material = new THREE.MeshBasicMaterial( { color: 0x000000, side: THREE.DoubleSide } );
         var sateliteArray = [];
+        var orbitLogX = [];
+        var orbitLogXState = [];
         var sateliteArrayRight = [];
+        var orbitLogY = [];
+        var orbitLogYState = [];
+        
         var lastAdded = 0;
 	var sateliteAmount = 30;
+        var satellitesAltitude = 0;
         
         window.onload = function(e){ 
             document.getElementById('sateLiteStatus').innerHTML='  Satellites launched: '+sateliteAmount;
+            clickPopupButton();
         }
+        function loadParams(){
+            var satelliteNoParam = document.getElementById("1").value;
+            var altitudeParam = document.getElementById("2").value;
+            var noOfAntennaOnSatellite = document.getElementById("3").value;
+            var sizeOfAntennaOnSatellite = document.getElementById("4").value;
+            var sizeOfAntennaOnGroundStation = document.getElementById("5").value;
+            var transPowOfAntennaOnGroundStation = document.getElementById("6").value;
+            var transPowOfAntennaOnsatellite = document.getElementById("7").value;
+            var gainDBOfGroundStationAntena = document.getElementById("8").value;
+            var gainDBOfSatAntena = document.getElementById("9").value;
+            var groundStationTransFreq = document.getElementById("10").value;
+            var satelliteTransFreq = document.getElementById("11").value;
+            window.alert('Satellite No:'+satelliteNoParam+"\n Altitude: "+altitudeParam);
+            sateliteAmount = satelliteNoParam;
+            satellitesAltitude = altitudeParam;
+            addThirtySatellitesOutside(satelliteNoParam);//this call adds thirty satelites outside the screen and keep track of them in an array
+            initializeSatelites();//this call makes satellites available in array available for packet transmission
         
+    }
         function increaseSateliteAmountAndUpdateHtml(){
             sateliteAmount++;
             document.getElementById('sateLiteStatus').innerHTML='  Satellites launched: '+sateliteAmount;
-        }	
+        }
+        function addThirtySatellitesOutside(noOfSatellites){
+            
+            for(let i = 0; i < noOfSatellites; i++){
+                
+                addSateliteOutside();
+            }
+            alert('added');
+        }
+        function addSateliteOutside(){
+            //alert('Satelite added');
+            if(lastAdded===0){  
+                sateliteArray.push(new THREE.Mesh( geometry, material ));
+                
+                scene2.add( sateliteArray[sateliteArray.length-1] );
+                
+                var leftSatelitProp = Math.floor(Math.random()*260) + 240; // this will get a number between 1 and 99;
+                leftSatelitProp *= Math.floor(Math.random()*2) == 1 ? 1 : -1; // this will add minus sign in 50% of cases
+                var leftSateliteAltitude = satellitesAltitude;
+                sateliteArray[sateliteArray.length-1].position.x = leftSatelitProp;
+                sateliteArray[sateliteArray.length-1].position.z = leftSateliteAltitude;
+                if(leftSatelitProp>0){
+                   orbitLogXState.push(0); 
+                }else{
+                    orbitLogXState.push(1);
+                }
+                orbitLogXState.push(0);
+                orbitLogX.push(leftSatelitProp);
+
+            
+                console.log(leftSatelitProp);
+                console.log(leftSateliteAltitude);
+                
+                var leftSatelitPropy = Math.floor(Math.random()*100) + 0; // this will get a number between 1 and 99;
+                leftSatelitPropy *=  Math.floor(Math.random()*2) == 1 ? 1 : -1; // this will add minus sign in 50% of cases
+                sateliteArray[sateliteArray.length-1].position.y = leftSatelitPropy;
+                console.log(leftSatelitPropy);
+                
+                lastAdded=1;
+            }else{
+                
+                
+                sateliteArrayRight.push(new THREE.Mesh( geometry, material ));
+                
+                scene2.add( sateliteArrayRight[sateliteArrayRight.length-1] );
+                
+                
+                var rightSatelitProp = Math.floor(Math.random()*215) + 0; // this will get a number between 1 and 99;
+                rightSatelitProp *= Math.floor(Math.random()*2) == 1 ? 1 : -1; // this will add minus sign in 50% of cases
+                var rightSateliteAltitude = satellitesAltitude;
+                sateliteArrayRight[sateliteArrayRight.length-1].position.x = rightSatelitProp;
+                sateliteArrayRight[sateliteArrayRight.length-1].position.z = rightSateliteAltitude;
+                
+                
+                console.log(rightSatelitProp);
+                console.log(rightSateliteAltitude);
+                
+                var leftSatelitPropy = Math.floor(Math.random()*150) + 130; // this will get a number between 1 and 99;
+                leftSatelitPropy *=  Math.floor(Math.random()*2) == 1 ? 1 : -1; // this will add minus sign in 50% of cases
+                sateliteArrayRight[sateliteArrayRight.length-1].position.y = leftSatelitPropy;
+                if(leftSatelitPropy>0){
+                orbitLogYState.push(0);
+                }else{
+                    orbitLogYState.push(1);
+                }
+                orbitLogY.push(leftSatelitPropy);
+                console.log(leftSatelitPropy);
+                
+                lastAdded=0;
+            }
+        }
+        //The function below creates new satelites, set their properties and
+        // push them into an array that will be referenced later to orbit and send packets through them
         function addSatelite(){
             //alert('Satelite added');
             if(lastAdded===0){  
@@ -61,7 +318,7 @@
                 
                 var leftSatelitProp = Math.floor(Math.random()*215) + 0; // this will get a number between 1 and 99;
                 leftSatelitProp *= Math.floor(Math.random()*2) == 1 ? 1 : -1; // this will add minus sign in 50% of cases
-                var leftSateliteAltitude = 0;
+                var leftSateliteAltitude = satellitesAltitude;
                 sateliteArray[sateliteArray.length-1].position.x = leftSatelitProp;
                 sateliteArray[sateliteArray.length-1].position.z = leftSateliteAltitude;
 
@@ -85,7 +342,7 @@
                 
                 var rightSatelitProp = Math.floor(Math.random()*215) + 0; // this will get a number between 1 and 99;
                 rightSatelitProp *= Math.floor(Math.random()*2) == 1 ? 1 : -1; // this will add minus sign in 50% of cases
-                var rightSateliteAltitude = 0;
+                var rightSateliteAltitude = satellitesAltitude;
                 sateliteArrayRight[sateliteArrayRight.length-1].position.x = rightSatelitProp;
                 sateliteArrayRight[sateliteArrayRight.length-1].position.z = rightSateliteAltitude;
                 
@@ -99,7 +356,55 @@
                 
                 lastAdded=0;
             }
-        }			
+        }
+        //The function below registers all the satelites in satlist 
+        // array so they can be used to transfer packets
+        function initializeSatelites(){
+               for(let i = 0; i < sateliteArrayRight.length; i++){
+                  satlist.push(sateliteArrayRight[i]);
+                  satlist.push(sateliteArray[i]);
+              }
+              //We're going to model the antenna rotation position of
+              // each satelite with numbers and store it in satelliteAntennaRotationPositionArray located in connection.js file
+              //  and we're going to be updating it every milliseconds 
+              // to imitate and simulate real life rotation of antenna positions on each satellite.
+              //Since satelites position affects their availability for packet transfer and ground station usage
+              //and all the satelites will not be of the same antenna position at a time, we'll model this variation
+              //with numbers in satelliteAntennaRotationPositionArray for each satellites.   
+              //So if a full satellite rotation cycle is modeled using 1000 milliseconds, 600 millisecons(60% of 1 second) should
+              //be the up time and 400 milliseconds(40% of 1 second)should be the down time
+              //that effectively implies that satellites rotation cycle below or equals 400 milliseconds
+              // is assumed to be unavailable. Now summing up all the seconds used for simulation(assuming we try to send 
+              // packets every second  ) 60% of the total simulation time will have each satelite with a packet transmission
+              // ready alignment while the remaining 40% wont.
+              // 
+              //   so first of all, we'll give the random satelite antenna rotation position to
+              // randomize the process
+              //
+              for(let i = 0; i < satlist.length; i++){
+                  satelliteAntennaRotationPositionArray.push((Math.floor(Math.random()*100) + 1)*100);//Assigning random satelite antenna rotation position
+              }
+              setInterval(rotateSatelliteAntennaPosition(), 90);//Rotate satelite every 90 millisecond
+        }
+        //This function will loop through satelliteAntennaRotationPositionArray array and 
+        // adjust the satelite antenna position by increasing it's position by 100 milliseconds
+        function rotateSatelliteAntennaPosition(){
+            
+           for(let i = 0; i < satelliteAntennaRotationPositionArray.length; i++){
+               var currentPosition = satelliteAntennaRotationPositionArray[i];
+               if(currentPosition===1000){//has the antenna successfully completed a full cycle
+                   satelliteAntennaRotationPositionArray[i] = 0;//if yes, start all over again
+               }else{
+                   satelliteAntennaRotationPositionArray[i] += 100;//if no, keep rotatiing
+               }
+           }
+        }
+        
+        function clickPopupButton() {
+              var jsfCommandLink2 = document.getElementById("btn19");
+              jsfCommandLink2.click();
+          }
+        
         </script>
         
         
@@ -130,6 +435,7 @@
 	<a  onclick="addSatelite()" class="btn btn-success" style="top: 235px !important;left: 904px !important; position: absolute; z-index: 1000;width: 150px;height: 35px;" ><i class="fa-li fa fa-spinner fa-spin"></i>Launch new satellite</a>	
         <button id="btn10" info="Hover over the Data Board to show controls again"><i class="fa-li fa fa-spinner fa-spin"></i>Close Controls</button>
         <div id="time"><time><b>00:00:<span id="factor">00</span></b></time></div>
+        <a href="#openModal2" class="btn btn-success" style="top: 145px !important;left: 904px !important; position: absolute; z-index: 1000;width: 130px;height: 35px; visibility: hidden" id="btn19"><i class="fa-li fa fa-spinner fa-spin"></i></a>
         </div>
 
 
@@ -538,12 +844,15 @@
         </script>
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
-  
-<div id="openModal" class="modalDialog">
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+  
+<div id="openModal" class="modalDialog">
+    
+    
 <style>
 table {
   font-family: arial, sans-serif;
@@ -614,7 +923,7 @@ tr:nth-child(even) {
 
 .close:hover { background: #00d9ff; }
 </style>
-	<div>
+	<div style="height:650px; margin-top: 10px !important; overflow-y: scroll">
 		
         <h2>Log report <span style='float:right;'><a id="closelog" href="#close" class="btn btn-danger" >X Close</a><a id="gpdf" class="btn btn-success btn-block" style="width: 130px;height: 35px;">Print PDF</a> </span></h2>
         <script>
