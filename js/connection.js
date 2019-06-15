@@ -62,13 +62,30 @@
            var satlist = [sat1, sat2, sat3, sat4, sat5, sat6, sat7, sat8, sat9, sat10, sat11, sat12, sat13, sat14, sat15, sat16, sat17, sat18, sat19, sat20 ];
            var loclist = [dot2, dot3, dot4, dot6, dot7, dot8];
 
+           var satelliteAntennaRotationPositionArray = [];//We're going to model the antenna rotation position of
+           // each satelite with numbers and store it in this array and we're going to be updating it every milliseconds 
+           // to imitate and real life rotation of antenna positions.
+
+
            var sat_active1;
            var loc_active;
+           
            function setcordinates() {
-               ranum = Math.floor(Math.random() * 20);
-               sat_active = satlist[ranum];
-               ranloc = Math.floor(Math.random() * 6);
-               loc_active = loclist[ranloc];
+               ranum = Math.floor(Math.random() * 50);
+               //test running satellite availability for every second by getting it's current rotation
+               // position and using that to determine whether it should send packets using that satelit or not.
+               //note, 
+               var satelliteAntennaAvailability = satelliteAntennaRotationPositionArray[ranum];
+               if(satelliteAntennaAvailability<=400){//if antenna position is not in alignment
+                   
+                   alert('Satelite '+ranum+' antenna is currently unavailable.  revolution position is '+satelliteAntennaAvailability+" another satellite will be picked instead");
+               }else{
+                   sat_active = satlist[ranum];
+                   ranloc = Math.floor(Math.random() * 6);
+                   loc_active = loclist[ranloc];
+               }
+               
+               
             }
             var delay = 0;
             var period_of_delay = 0;
@@ -96,7 +113,7 @@
             line2.geometry.vertices[ 1 ].y = 0;  
             line2.geometry.verticesNeedUpdate = true;
            }
-
+           
            function link() {
             if (sat_active.position.x >= -140 && sat_active.position.x <= 128 && sat_active.position.y >= -90 && sat_active.position.y <= 80) {
                 delay = 0;
@@ -135,4 +152,5 @@
             function stopflash() {
                 clearInterval(s);
             }
+            
             flash();

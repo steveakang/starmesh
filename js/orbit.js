@@ -1,4 +1,5 @@
 function orbit_all_satellites() {
+    
             sat1.position.x += pos1x;
             sat1.position.y += pos1y;
             sat2.position.x += pos2x;

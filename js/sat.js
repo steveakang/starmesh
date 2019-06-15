@@ -779,7 +779,53 @@
         camera.lookAt( new THREE.Vector3( 0, 0, 0 ) );
 
         // DOM Variables //
-
+            //this function makes satelites orbit in and out of viewport
+            function orbitNewlyAddedSatelite(){
+            
+             for(let i = 0; i < sateliteArrayRight.length; i++){
+                 // sateliteArrayRight[i].position.x = randomSatOrbitRightX[i];
+                  if(sateliteArrayRight[i].position.y >=-150 && orbitLogYState[i]===0){
+                  //alert('CurrentValue'+orbitLogX[i]);
+                  //alert(orbitLogXState[i]+'CurrentValue'+sateliteArray[i].position.x);
+                  sateliteArrayRight[i].position.y -= pos1y;
+                  orbitLogY[i] = sateliteArrayRight[i].position.y;
+                  if(sateliteArrayRight[i].position.y<=-149){
+                     // alert('CurrentValue'+orbitLogX[i]);
+                      orbitLogYState[i]=1;
+                  }
+              }else{
+                  sateliteArrayRight[i].position.y += pos1y;
+                  orbitLogY[i] = sateliteArrayRight[i].position.y;
+                  if(orbitLogY[i]>150){
+                      orbitLogYState[i]=0;
+                  }
+              }
+             }
+                
+            for(let i = 0; i < sateliteArray.length; i++){
+               
+              if(sateliteArray[i].position.x >=-250 && orbitLogXState[i]===0){
+                  //alert('CurrentValue'+orbitLogX[i]);
+                  //alert(orbitLogXState[i]+'CurrentValue'+sateliteArray[i].position.x);
+                  sateliteArray[i].position.x += pos1x;
+                  orbitLogX[i] = sateliteArray[i].position.x;
+                  if(sateliteArray[i].position.x<=-249){
+                     // alert('CurrentValue'+orbitLogX[i]);
+                      orbitLogXState[i]=1;
+                  }
+              }else{
+                  sateliteArray[i].position.x -= pos1x;
+                  orbitLogX[i] = sateliteArray[i].position.x;
+                  if(orbitLogX[i]>250){
+                      orbitLogXState[i]=0;
+                  }
+              }
+              
+              
+              
+              //sateliteArray[i].position.y -= randomSatOrbitLeftY[i];
+            }
+}
         // -- rendering start
         function animate() {
             requestAnimationFrame( animate );
@@ -787,6 +833,7 @@
             //--Animation--for rotating the element-----//
             rotate_all_satellites();
             orbit_all_satellites();
+            orbitNewlyAddedSatelite();
             //Blinking Dot ---//
             // dot1.rotation.x += 0.10;
             
